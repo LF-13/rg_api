@@ -1,20 +1,30 @@
 package com.algaworks.rh.controller;
 
-import com.algaworks.rh.model.Funcionarios;
+import com.algaworks.rh.model.Funcionario;
+import com.algaworks.rh.repository.FuncionarioRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
 
+    private final FuncionarioRepository funcionarioRepository;
+
+    public FuncionarioController(FuncionarioRepository funcionarioRepository) {
+        this.funcionarioRepository = funcionarioRepository;
+    }
+
     @GetMapping
-    public String testar() {
-        return "Isso é um teste!";
+    public List<Funcionario> listar() {
+        return funcionarioRepository.findAll();
     }
 
     @PostMapping
-    public Funcionarios cadastrar(@RequestBody Funcionarios funcionarios) {
-        System.out.println(funcionarios);
-        return funcionarios;
+    @ResponseStatus(HttpStatus.CREATED)
+    public Funcionario cadastrar(@RequestBody Funcionario funcionario) {
+        return funcionarioRepository.save(funcionario);
     }
 }
