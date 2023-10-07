@@ -36,4 +36,14 @@ public class FuncionarioController {
         return funcionarioRepository.save(funcionario);
     }
 
+    @PutMapping("/{funcionarioId}")
+    public ResponseEntity<Funcionario> atualizar(@PathVariable Long funcionarioId, @RequestBody Funcionario funcionario) {
+        if (!funcionarioRepository.existsById(funcionarioId)) {
+            return ResponseEntity.notFound().build();
+        }
+        funcionario.setId(funcionarioId);
+        Funcionario funcionarioAtualizado = funcionarioRepository.save(funcionario);
+        return ResponseEntity.ok(funcionarioAtualizado);
+    }
+
 }
