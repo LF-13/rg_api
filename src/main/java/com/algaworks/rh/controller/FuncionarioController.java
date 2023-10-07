@@ -24,7 +24,7 @@ public class FuncionarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Funcionario cadastrar(@RequestBody Funcionario funcionario) {
-        return funcionarioRepository.save(funcionario);
+    public List<Funcionario> cadastrar(@RequestBody List<Funcionario> funcionarios) {
+        return funcionarioRepository.saveAll(funcionarios);
     }
 }
