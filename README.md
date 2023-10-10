@@ -22,7 +22,7 @@ Pré-requisitos: Java 17, LÓGICA DE PROGRAMAÇÃO, POO.
 # clonar repositório
 git clone https://github.com/LF-13/rg_api
 
-# entrar na pasta do projeto cursoCompletoJava
+# entrar na pasta do projeto 
 src/main/java
 
 # executar o projeto
