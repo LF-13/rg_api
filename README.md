@@ -3,7 +3,7 @@
 # Tecnologias utilizadas
 ## Back end
 - JAVA
-- POO
+- OO
 - SPRING WEB
 - H2 DATAJPA(SQL)
 - SPRING BOOT DEV TOOLS
